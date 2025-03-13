@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery</title>
+    <!--Montserrat-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        font-family: "Montserrat", sans-serif;
+    }
+
+    .navbar {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #735f5a;
+        border: 1px solid #121212;
+    }
+
+    .brand {
+        height: 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        color: #121211;
+    }
+
+    .brand-name {
+        font-size: 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    }
+
+    .brand-img {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+
+    }
+
+
+    .info {
+        height: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 30px;
+    }
+
+    .info>a {
+        margin: 10px;
+        text-decoration: none;
+        color: whitesmoke;
+    }
+
+    .sign-up {
+        height: 30px;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        color: #121211;
+    }
+
+    .btn-signup {
+        border-radius: 30px;
+        padding: 5px 15px;
+        background-color: rgb(47, 45, 45);
+        color: whitesmoke;
+        border: 1px solid black;
+    }
+
+    .sign-up>img,
+    .sign-up>button {
+        margin: 10px;
+        cursor: pointer;
+    }
+
+
+    .poster-container {
+        position: relative;
+        width: 80%;
+        margin: 40px auto;
+    }
+
+    .poster-img {
+        width: 100%;
+        height: 500px;
+        border-radius: 20px;
+        display: block;
+    }
+
+
+    .poster-info {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+        border-radius: 15px;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .poster-info .btn-signup {
+        margin-top: 15px;
+        background-color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .poster-info>h2,
+    .poster-info>p {
+        width: 80%;
+    }
+
+    .explore {
+        width: 80%;
+        margin: 50px auto;
+        text-align: center;
+
+    }
+
+    .explore>h1 {
+        text-align: center;
+    }
+
+    .explore-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .food-item {
+        width: 160px;
+        text-align: center;
+    }
+
+    .food-item img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #735f5a;
+        padding: 5px;
+    }
+
+    .food-item p {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    .dishes-container {
+        width: 80%;
+        margin-top: 0;
+        margin: auto;
+    }
+
+    .dishes {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .dish {
+        width: 280px;
+        height: 360px;
+        background: white;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .dish:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .dish-image {
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .dish-container {
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .dish-info {
+        width: 90%;
+    }
+
+    .dish-desc {
+        margin-top: 5px;
+        font-size: 0.9rem;
+        color: #444;
+    }
+
+    footer {
+        background: #222;
+        color: #fff;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .about h2 img {
+        height: 30px;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+
+    .about p {
+        max-width: 400px;
+        margin: 10px auto;
+    }
+
+    .social-icons a {
+        margin: 0 10px;
+        color: #fff;
+        font-size: 18px;
+        text-decoration: none;
+    }
+
+    .company ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .company ul li {
+        margin: 8px 0;
+    }
+
+    .company ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .contact p {
+        margin: 5px 0;
+    }
+
+    .copyright {
+        margin-top: 20px;
+        border-top: 1px solid #555;
+        padding-top: 10px;
+        font-size: 14px;
+    }
+
+
+
+
+    @media only screen and (max-width: 600px) {
+        .info {
+            display: none;
+        }
+
+        .poster-info>p {
+            display: none;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="brand">
+            <img src="./Assets/icons8-food-delivery-25.png" class="brand-img">
+            <h1 class="brand-name">DAAWAT</h1>
+
+        </div>
+        <div class="info">
+            <a href="/">Home</a>
+            <a href="/">Menu</a>
+            <a href="/">Contact Us</a>
+        </div>
+        <div class="sign-up">
+            <img src="./Assets/icons8-bag-25.png" class="img" alt="Shopping Bag">
+            <button class="btn-signup">Sign Up</button>
+        </div>
+    </div>
+    <div class="poster-container">
+        <img src="Assets/food_poster.jpg" class="poster-img" alt="Food Poster">
+        <div class="poster-info">
+            <h2>Order Your Favorite Food Here</h2>
+            <p>🍽️ Daawat – A Symphony of Flavors. At Daawat, every dish is a masterpiece, blending rich Indian spices
+                with global delights to create an unforgettable experience. From aromatic biryanis to sizzling
+                delicacies, each bite is crafted with passion and perfection. Savor the artistry of taste, delivered
+                fresh to your doorstep.</p>
+            <button class="btn-signup" style="background-color: #121211;">View Menu</button>
+        </div>
+    </div>
+
+    <div class="explore">
+        <h1 style="color: palevioletred;">EXPLORE OUR MENU</h1>
+        <p style=" font-size: 20px; color: black">
+            Experience the rich flavors of tradition at Dawaat!
+            Our menu is crafted with authentic recipes and the finest ingredients
+            to bring you a feast like no other. Come, savor
+            the taste of heritage with every bite!</p>
+        <div class="explore-items" id="explore-items"></div>
+    </div>
+
+    <div class="dishes-container">
+        <h2 style="color:rgb(0, 0, 0); padding: 20px;">Top dishes near you</h2>
+        <div class="dishes" id="dishes"></div>
+    </div>
+
+    <script>
+        const imageSrc = [
+            "Assets/fresh_salad.jpg",
+            "Assets/Rolls/1735652408564food_6.png",
+            "Assets/Deserts/1735652463233food_9.png",
+            "Assets/Sandwich/1735652642452food_13.png",
+            "Assets/Cake/1735652840470food_17.png",
+            "Assets/Pure Veg/1735652966669food_21.png",
+            "Assets/Pasta/1735653129255food_25.png",
+            "Assets/Noodles/1735653254460food_29.png"
+        ];
+        const name = ["Salad", "Rolls", "Deserts", "Sandwich", "Cake", "Pure Veg", "Pasta", "Noodles"];
+
+        const exploreItemsContainer = document.getElementById("explore-items");
+
+        let htmlData = "";
+        for (let i = 0; i < imageSrc.length; i++) {
+            htmlData += `
+                    <div class="food-item" onclick="updateCategory(${i})">
+                        <img src="${imageSrc[i]}" alt="${name[i]}"/>
+                        <p>${name[i]}</p>
+                    </div>
+                `;
+        }
+
+        exploreItemsContainer.innerHTML = htmlData;
+
+        function updateCategory(categoryIndex) {
+            switch (categoryIndex) {
+                case 0: updateSalad(); break;
+                case 1: updateRolls(); break;
+                case 2: updateDesserts(); break;
+                case 3: updateSandwich(); break;
+                case 4: updateCake(); break;
+                case 5: updateVeg(); break;
+                case 6: updatePasta(); break;
+                case 7: updateNoodles(); break;
+                default: break;
+            }
+        }
+
+        function updateSalad() {
+            const salad = [
+                { imgSrc: 'Assets/Salad/1738028214561food_1.png', name: 'Greek Salad', desc: 'A refreshing mix of cucumbers, tomatoes, olives, and feta cheese, dressed with olive oil.', price: 180 },
+                { imgSrc: 'Assets/Salad/1738028242221food_2.png', name: 'Veg Salad', desc: 'A healthy combination of fresh veggies, nuts, and a light vinaigrette.', price: 150 },
+                { imgSrc: 'Assets/Salad/1738028285609food_4.png', name: 'Clover Salad', desc: 'A crisp and nutritious salad with leafy greens and a tangy dressing.', price: 170 },
+                { imgSrc: 'Assets/Salad/1738028267213food_3.png', name: 'Chicken Salad', desc: 'Grilled chicken mixed with fresh greens and a zesty lemon dressing.', price: 200 }
+            ];
+            updateDishes(salad);
+        }
+
+        function updateRolls() {
+            const rolls = [
+                { imgSrc: 'Assets/Rolls/1735652408564food_6.png', name: 'Peri Peri Rolls', desc: 'Spicy and flavorful peri-peri seasoned rolls with a crispy outer layer.', price: 220 },
+                { imgSrc: 'Assets/Rolls/1735652434407food_7.png', name: 'Chicken Roll', desc: 'Juicy chicken wrapped in a soft, grilled roll with a smoky flavor.', price: 280 },
+                { imgSrc: 'Assets/Rolls/1735653956004food_8.png', name: 'Veg Roll', desc: 'A delightful mix of veggies and sauces wrapped in a soft roll.', price: 180 }
+            ];
+
+            updateDishes(rolls);
+        }
+        function updateCake() {
+            const cake = [
+                { imgSrc: 'Assets/Cake/1735652840470food_17.png', name: 'Cup Cake', desc: 'Soft, fluffy cupcakes topped with creamy frosting.', price: 120 },
+                { imgSrc: 'Assets/Cake/1735652866009food_18.png', name: 'Vegan Cake', desc: 'A delicious dairy-free cake with a moist texture and rich flavor.', price: 200 },
+                { imgSrc: 'Assets/Cake/1735652896321food_19.png', name: 'Butterscotch Cake', desc: 'Rich and creamy butterscotch-flavored cake with caramel drizzle.', price: 350 },
+                { imgSrc: 'Assets/Cake/1735652913162food_20.png', name: 'Sliced Cake', desc: 'A classic cake slice with layers of cream and soft sponge.', price: 180 }
+            ];
+
+            updateDishes(cake);
+        }
+        function updateDesserts() {
+            const desserts = [
+                { imgSrc: 'Assets/Deserts/1735652463233food_9.png', name: 'Ripple Ice Cream', desc: 'Creamy vanilla ice cream with a delightful chocolate ripple.', price: 120 },
+                { imgSrc: 'Assets/Deserts/1735652487348food_10.png', name: 'Fruit Ice Cream', desc: 'A refreshing blend of seasonal fruits in a creamy ice cream base.', price: 250 },
+                { imgSrc: 'Assets/Deserts/1735652533279food_11.png', name: 'Jar Ice Cream', desc: 'Layered ice cream served in a jar for a delightful experience.', price: 200 },
+                { imgSrc: 'Assets/Deserts/1735652551563food_12.png', name: 'Vanilla Ice Cream', desc: 'Classic and smooth vanilla ice cream with a rich taste.', price: 180 }
+            ];
+
+            updateDishes(desserts);
+        }
+        function updateSandwich() {
+            const Sandwich = [
+                { imgSrc: 'Assets/Sandwich/1735652642452food_13.png', name: 'Chicken Sandwich', desc: 'A flavorful grilled chicken sandwich with crispy lettuce and mayo.', price: 200 },
+                { imgSrc: 'Assets/Sandwich/1735652662437food_14.png', name: 'Vegan Sandwich', desc: 'A healthy and delicious sandwich with fresh veggies and plant-based spread.', price: 220 },
+                { imgSrc: 'Assets/Sandwich/1735652760873food_16.png', name: 'Bread Sandwich', desc: 'A simple yet satisfying sandwich with cheese, tomato, and fresh bread.', price: 180 },
+                { imgSrc: 'Assets/Sandwich/1735652795134food_15.png', name: 'Grilled Sandwich', desc: 'Perfectly grilled sandwich with a crispy texture and melted cheese.', price: 250 }
+            ];
+
+            updateDishes(Sandwich);
+        }
+        function updateVeg() {
+            const Veg = [
+                { imgSrc: 'Assets/Litti_Chokha (2).jpg', name: 'Litti Chokha', desc: 'Traditional wheat dumplings served with mashed spiced potatoes.', price: 180 },
+                { imgSrc: 'Assets/Dal Bhati Churma.jpg', name: 'Dal Bhati Churma', desc: 'A rich Rajasthani dish of dal, baked wheat rolls, and sweet churma.', price: 220 },
+                { imgSrc: 'Assets/Pure Veg/1735652966669food_21.png', name: 'Garlic Mushroom', desc: 'Sautéed mushrooms with garlic butter and herbs.', price: 200 },
+                { imgSrc: 'Assets/Pure Veg/1735653050586food_23.png', name: 'Mix Veg Pulao', desc: 'Aromatic rice cooked with mixed vegetables and mild spices.', price: 250 },
+                { imgSrc: 'Assets/Pure Veg/1735653081287food_24.png', name: 'Rice Zucchini', desc: 'Healthy zucchini and rice stir-fried with light seasonings.', price: 230 }
+            ];
+            updateDishes(Veg);
+        }
+        function updatePasta() {
+            const Pasta = [
+                { imgSrc: 'Assets/Pasta/1735653129255food_25.png', name: 'Cheese Pasta', desc: 'Creamy pasta loaded with cheese and herbs.', price: 200 },
+                { imgSrc: 'Assets/Pasta/1735653156349food_26.png', name: 'Tomato Pasta', desc: 'Tangy and rich tomato-based pasta topped with fresh basil.', price: 180 },
+                { imgSrc: 'Assets/Pasta/1735653185626food_27.png', name: 'Creamy Pasta', desc: 'Silky smooth pasta with a blend of cream and mild spices.', price: 220 },
+                { imgSrc: 'Assets/Pasta/1735653215952food_28.png', name: 'Chicken Pasta', desc: 'Savory pasta with tender chicken and a flavorful sauce.', price: 250 }
+            ];
+            updateDishes(Pasta);
+        }
+        function updateNoodles() {
+            const Noodles = [
+                { imgSrc: 'Assets/Noodles/1735653254460food_29.png', name: 'Butter Noodles', desc: 'Soft noodles tossed in butter with a touch of garlic.', price: 160 },
+                { imgSrc: 'Assets/Noodles/1735653276922food_30.png', name: 'Veg Noodles', desc: 'A classic noodle dish stir-fried with mixed vegetables.', price: 180 },
+                { imgSrc: 'Assets/Noodles/1735653298488food_31.png', name: 'Somen Noodles', desc: 'Thin and light Japanese noodles with a subtle flavor.', price: 200 },
+                { imgSrc: 'Assets/Noodles/1735653321991food_32.png', name: 'Cooked Noodles', desc: 'Soft and well-cooked noodles, ready to be enjoyed.', price: 170 }
+            ];
+            updateDishes(Noodles);
+        }
+
+        function updateDishes(dishes) {
+            let dishesData = '';
+            dishes.forEach(dish => {
+                dishesData += `
+                        <div class="dish">
+                            <img src="${dish.imgSrc}" class="dish-image" alt="${dish.name}" />
+                            <div class="dish-container">
+                                <div class="dish-info">
+                                    <h4>${dish.name}</h4>
+                                    <p class="dish-desc">${dish.desc}</p>
+                                    <p class="dish-price">₹${dish.price}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+            });
+            document.getElementById("dishes").innerHTML = dishesData;
+        }
+    </script>
+
+    <footer>
+        <div class="footer-container">
+            <div class="about">
+                <h2><img src="Assets/icons8-food-delivery-25.png" alt="Daawat Logo">DAAWAT</h2>
+                <p>Daawat is a food delivery and catering service committed to providing delicious meals with quality
+                    ingredients. We bring authentic flavors to your doorstep with love and care.</p>
+                <div class="social-icons">
+                    <a href="mailto:aditianand09tkp@gmail.com" class="email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    </a>
+                    <a href="https://www.instagram.com/wtf_adiiiii_/" target="_blank" style="color: #E4405F;">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aditi-anand-745458318/" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+
+            </div>
+            <div class="company">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h3>Get in touch</h3>
+                <p>+91 79924 89133</p>
+                <p>contact@daawat.com</p>
+            </div>
+        </div>
+        <p class="copyright">Copyright 2024 © Daawat. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
